@@ -4,17 +4,34 @@ QBoard::QBoard(QWidget *parent) :
     QWidget(parent)
 {
 
-    QGridLayout *grid_layout = new QGridLayout;
+    grid_layout = new QGridLayout;
     grid_layout->setMargin(5);
     grid_layout->setSpacing(0);
+    positionCells();
+    positionXY();
+    setLayout(grid_layout);
+    drawCells();
+}
 
+//Расставить клетки
+void QBoard::positionCells(){
+    for(int i = 0; i < 8; i++){
+        for(int j = 0; j < 8; j++){
+            Cells[i][j] = new QCell(QPoint (i, j), this);
+            QBoard::grid_layout->addWidget(Cells[i][j], i + 1, j + 1);
+        }
+    }
+}
+
+//Расставить буквы и цифры для обозначения координат
+void QBoard::positionXY(){
     QString let("ABCDEFGH  "), num("12345678  ");
     const int len_let = 9, len_num = 9;
     QLabel *lbl_let[len_let];
     for(int i = 0; i < 8; ++i){
         lbl_let[i] = new QLabel;
         lbl_let[i]->setText(let[i] + '\0');
-        grid_layout->addWidget(lbl_let[i], 0, (i + 1), Qt::AlignHCenter);
+        QBoard::grid_layout->addWidget(lbl_let[i], 0, (i + 1), Qt::AlignHCenter);
         lbl_let[i]->setMaximumSize(17, 17);
     }
 
@@ -22,16 +39,10 @@ QBoard::QBoard(QWidget *parent) :
     for(int i = 0; i < 8; ++i){
         lbl_num[i] = new QLabel;
         lbl_num[i]->setText(num[i] + '\0');
-        grid_layout->addWidget(lbl_num[i], (i + 1), 0, Qt::AlignVCenter);
+        QBoard::grid_layout->addWidget(lbl_num[i], (i + 1), 0, Qt::AlignVCenter);
         lbl_num[i]->setMaximumSize(15, 15);
     }
 
-    for(int i = 0; i < 8; i++){
-        for(int j = 0; j < 8; j++){
-            Cells[i][j] = new QCell(QPoint (i, j), this);
-            grid_layout->addWidget(Cells[i][j], i + 1, j + 1);
-        }
-    }
 
     lbl_let[len_let] = new QLabel;
     lbl_num[len_num] = new QLabel;
@@ -39,14 +50,11 @@ QBoard::QBoard(QWidget *parent) :
     lbl_num[len_num]->setMaximumSize(15, 15);
     lbl_let[len_let]->setText(let[len_let] + '\0');
     lbl_num[len_num]->setText(num[len_num] + '\0');
-    grid_layout->addWidget(lbl_let[len_let], len_let, 0);
-    grid_layout->addWidget(lbl_num[len_num], 0, len_num);
-
-    setLayout(grid_layout);
-    drawCells();
+    QBoard::grid_layout->addWidget(lbl_let[len_let], len_let, 0);
+    QBoard::grid_layout->addWidget(lbl_num[len_num], 0, len_num);
 }
 
-
+//Закрасить клетки
 void QBoard::drawCells()
 {
     for(int i = 0; i < 8; i++){
