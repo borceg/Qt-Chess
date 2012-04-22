@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100"
+   height="100"
+   id="svg3669"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="QPawn.svg">
+  <defs
+     id="defs3671">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective3677" />
+    <inkscape:perspective
+       id="perspective3664"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="42.270969"
+     inkscape:cy="45.009413"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="916"
+     inkscape:window-x="-4"
+     inkscape:window-y="43"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3674">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"
+     transform="translate(0,-952.36219)">
+    <path
+       id="path496"
+       d="m 74.976291,1043.7159 -0.156985,-1.1507 c 2.161568,-2.2998 3.429525,-5.0446 3.139709,-8.441 -0.301897,-3.6765 -2.946497,-7.7069 -5.687712,-10.8046 l -0.01227,-0.6339 0.193212,0 c 0.627942,-0.018 2.161568,-0.9326 1.76307,-2.0558 -0.45888,-1.4132 -2.137417,-1.7119 -2.729134,-1.7119 l -0.16906,0 -0.229439,-0.4169 -0.217366,-0.2898 c -4.794097,-6.7557 -11.013142,-20.62218 -12.655448,-28.26622 l 8.549673,0 c 0.434728,-0.0452 4.74579,-1.72987 4.480122,-4.46499 -0.326043,-3.42347 -4.757868,-4.66429 -5.156371,-4.66429 l -8.899873,0 -0.02412,-0.0993 c 5.603181,-2.03781 9.455359,-6.40316 9.455359,-11.42976 0,-6.99192 -7.462845,-12.65244 -16.676687,-12.65244 -9.213852,0 -16.68877,5.66052 -16.68877,12.65244 0,5.0266 3.864256,9.39195 9.45536,11.42976 l 0,0.0993 -9.056857,0 c -0.398503,0 -4.637114,1.24082 -4.951088,4.66429 -0.277741,2.73512 3.864259,4.41978 4.298994,4.46499 l 8.67043,0 c -1.618158,7.51726 -6.605472,20.10622 -10.940682,27.90442 l -0.797009,1.0685 -0.434723,0 c -0.591714,0 -2.282332,0.2987 -2.741206,1.7119 -0.386434,1.1232 1.135121,2.0381 1.76307,2.0558 l 0.07245,0 -0.156981,0.4256 -0.144911,0.2083 c -2.366858,2.8077 -5.90507,6.4665 -6.243195,10.1077 -0.326043,3.5498 1.038521,6.9736 3.345003,9.3462 l -0.289813,0.8785 -1.907977,1.712 c -0.519266,0.8963 -0.519266,2.7262 -0.519266,2.7262 l 54.667189,0 c 0,0 -0.14491,-1.8113 -0.591712,-2.6722 l -1.775146,-1.7021 z"
+       style="fill:#221f1f;stroke:none"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>
