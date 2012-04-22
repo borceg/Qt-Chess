@@ -6,14 +6,13 @@ QGamePlace::QGamePlace(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::QGamePlace)
 {
-
     ui->setupUi(this);
     _boardPlace = new QBoardPlace(this);
-    QHBoxLayout *layout = new QHBoxLayout;
-    layout->addWidget(_boardPlace);
-    ui->centralWidget->setLayout(layout);
+    QGridLayout *centr_layout = new QGridLayout;
+    centr_layout->addWidget(_boardPlace/*, 1, 1, 8, 8*/);
 
-    //_board = new QBoard(_boardPlace);
+
+    ui->centralWidget->setLayout(centr_layout);
 
 }
 

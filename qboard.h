@@ -12,7 +12,7 @@ public:
     explicit QBoard(QWidget *parent = 0);
 
 private:
-    void positionCells();
+   // void positionCells();
     void drawCells();
     QCell *Cells[8][8];
 };

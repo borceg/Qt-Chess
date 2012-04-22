@@ -6,7 +6,6 @@
 #include "qboardplace.h"
 
 
-class QBoard;
 class QBoardPlace;
 
 namespace Ui {
@@ -24,7 +23,7 @@ public:
 private:
     Ui::QGamePlace *ui;
     QBoardPlace *_boardPlace;
-    QBoard *_board;
+
 };
 
 #endif // QGAMEPLACE_H
