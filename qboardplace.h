@@ -4,16 +4,20 @@
 #include <QFrame>
 #include "qboard.h"
 
+//#include "qpiece.h"
+
 class QBoard;
 
 class QBoardPlace : public QFrame
 {
     Q_OBJECT
+
 public:
-    explicit QBoardPlace(QWidget *parent = 0);
+    QBoardPlace(QWidget *parent = 0);
+    QBoard *_board;
 
 private:
-       QBoard *_board;
+       virtual void resizeEvent(QResizeEvent *);
 
 };
 

@@ -14,7 +14,9 @@
    <string>QGamePlace</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(85, 170, 255);
+   <string notr="true">background-color: rgb(212, 255, 219);
+
+
 </string>
   </property>
   <widget class="QWidget" name="centralWidget"/>
@@ -24,7 +26,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>25</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

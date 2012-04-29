@@ -17,12 +17,12 @@ class QGamePlace : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit QGamePlace(QWidget *parent = 0);
+    QBoardPlace *_boardPlace;
+    QGamePlace(QWidget *parent = 0);
     ~QGamePlace();
 
 private:
     Ui::QGamePlace *ui;
-    QBoardPlace *_boardPlace;
 
 };
 

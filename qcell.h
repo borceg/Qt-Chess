@@ -1,17 +1,20 @@
 #ifndef QCELL_H
 #define QCELL_H
 
-//#include <QWidget>
 #include <QLabel>
 
 class QCell : public QLabel
 {
     Q_OBJECT
 public:
-    explicit QCell(QPoint position, QWidget *parent = 0);
+    QCell(QPoint position, QWidget *parent = 0);
+    QPoint getPosC();
 
 private:
     QPoint _position;
+
+protected:
+
 };
 
 #endif // QCELL_H

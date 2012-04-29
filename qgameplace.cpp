@@ -9,10 +9,9 @@ QGamePlace::QGamePlace(QWidget *parent) :
     ui->setupUi(this);
     _boardPlace = new QBoardPlace(this);
     QGridLayout *centr_layout = new QGridLayout;
-    centr_layout->addWidget(_boardPlace/*, 1, 1, 8, 8*/);
-
-
+    centr_layout->addWidget(_boardPlace);
     ui->centralWidget->setLayout(centr_layout);
+//    QPiece(_board, _board->Cells[1][1]->getPositionCell(), QPiece::King );
 
 }
 

@@ -5,17 +5,19 @@
 #include <QLayout>
 #include "qcell.h"
 
+class QCell;
+
 class QBoard : public QWidget
 {
     Q_OBJECT
 public:
-    explicit QBoard(QWidget *parent = 0);
+    QBoard(QWidget *parent = 0);
+    QCell *Cells[8][8];
 
 private:
     void positionCells();
     void positionXY();
     void drawCells();
-    QCell *Cells[8][8];
     QGridLayout *grid_layout;
 };
 

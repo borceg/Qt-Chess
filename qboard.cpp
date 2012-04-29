@@ -44,14 +44,14 @@ void QBoard::positionXY(){
     }
 
 
-    lbl_let[len_let] = new QLabel;
-    lbl_num[len_num] = new QLabel;
-    lbl_let[len_let]->setMaximumSize(17, 17);
-    lbl_num[len_num]->setMaximumSize(15, 15);
-    lbl_let[len_let]->setText(let[len_let] + '\0');
-    lbl_num[len_num]->setText(num[len_num] + '\0');
-    QBoard::grid_layout->addWidget(lbl_let[len_let], len_let, 0);
-    QBoard::grid_layout->addWidget(lbl_num[len_num], 0, len_num);
+    lbl_let[len_let - 1] = new QLabel;
+    lbl_num[len_num - 1] = new QLabel;
+    lbl_let[len_let - 1]->setMaximumSize(17, 17);
+    lbl_num[len_num - 1]->setMaximumSize(15, 15);
+    lbl_let[len_let - 1]->setText(let[len_let] + '\0');
+    lbl_num[len_num - 1]->setText(num[len_num] + '\0');
+    QBoard::grid_layout->addWidget(lbl_let[len_let - 1], len_let, 0);
+    QBoard::grid_layout->addWidget(lbl_num[len_num - 1], 0, len_num);
 }
 
 //Закрасить клетки
@@ -64,5 +64,4 @@ void QBoard::drawCells()
             else Cells[i][j]->setStyleSheet("background-color: rgb(255, 255, 255)");
         }
     }
-
 }
