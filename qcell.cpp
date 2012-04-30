@@ -11,3 +11,4 @@ QPoint QCell::getPosC()
 {
     return _position;
 }
+

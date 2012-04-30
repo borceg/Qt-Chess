@@ -8,7 +8,7 @@ QPiece::QPiece(QWidget *board, QPoint position, Type type ) : QSvgWidget(board)
     _color = position.x() > 4;  //Color changed
     setType(type);
     setPosition(position);
-
+    //_game = QGame::instance(w->_boardPlace);
 }
 
 void QPiece::setPosition(QPoint val)

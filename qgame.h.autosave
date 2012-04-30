@@ -33,10 +33,10 @@ public:
     static QGame *instance();
     void setBoard(QBoard *val);
     void newGame();
-    QGame();
-    //~QGame();
 
 private:
+    QGame();
+    ~QGame();
     QResource _res;
     QPiece *_selectPiece;
     bool _activeMove;

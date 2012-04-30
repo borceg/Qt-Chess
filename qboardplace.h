@@ -17,7 +17,7 @@ public:
     QBoard *_board;
 
 private:
-       virtual void resizeEvent(QResizeEvent *);
+       virtual void resizeEvent(QResizeEvent*);
 
 };
 

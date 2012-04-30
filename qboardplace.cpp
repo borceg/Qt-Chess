@@ -11,8 +11,6 @@ QBoardPlace::QBoardPlace(QWidget *parent) :
     hlayout->addWidget(_board);
 
     setLayout(hlayout);
-//    QPiece(_board, _board->Cells[1][1]->getPositionCell(), QPiece::King );
-
 }
 
 void QBoardPlace::resizeEvent(QResizeEvent *event)

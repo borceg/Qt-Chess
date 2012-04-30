@@ -9,6 +9,7 @@
 
 #include <QHBoxLayout>
 #include "qboard.h"
+//#include "qgame.h"
 
 class QBoard;
 
@@ -46,6 +47,8 @@ private:
     QBoard *_board;
     QSvgWidget *_svgPiece;
 
+protected:
+    //QGame *_game;
 };
 
 #endif // QPIECE_H
