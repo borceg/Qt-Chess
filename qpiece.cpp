@@ -2,13 +2,12 @@
 
 QPiece::QPiece(QWidget *board, QPoint position, Type type ) : QSvgWidget(board)
 {
-
+    _game = QGame::instance();
     _board = static_cast<QBoard *> (board);
 
     _color = position.x() > 4;  //Color changed
     setType(type);
     setPosition(position);
-    //_game = QGame::instance(w->_boardPlace);
 }
 
 void QPiece::setPosition(QPoint val)
@@ -30,9 +29,7 @@ void QPiece::setPosition(QPoint val)
     }
 
     //Set cell parent for board
-    this->setParent( _board->Cells[ val.x() ][ val.y() ]);
-    this->setStyleSheet("background-color: rgb(255, 0, 0);");
-
+    _svgPiece->setParent( _board->Cells[ val.x() ][ val.y() ]);
 }
 
 void QPiece::setColor(bool val)     { _color = val; }
@@ -48,7 +45,7 @@ void QPiece::setType(Type val)
         if ( val == 4 ) _svgPiece = new QSvgWidget(":/images/white/queen.svg");
         if ( val == 5 ) _svgPiece = new QSvgWidget(":/images/white/pawn.svg");
     }
-    if (!_color) //Black pieces
+    if ( !_color ) //Black pieces
     {
         if ( val == 0 ) _svgPiece = new QSvgWidget(":/images/black/rook.svg");
         if ( val == 1 ) _svgPiece = new QSvgWidget(":/images/black/knight.svg");
@@ -65,3 +62,21 @@ bool            QPiece::color()     { return _color;}
 QPiece::State   QPiece::state()     { return _state;}
 QPiece::Type    QPiece::type()      { return _type;}
 
+void QPiece::movePiece(QPoint newPos)
+{
+    setPosition(newPos);
+}
+
+void QPiece::mousePressEvent(QMouseEvent *ev)
+{
+//    if ( ev->button() == Qt::LeftButton)
+//    {
+        _svgPiece->setStyleSheet("background-color: rgb(255, 0, 4);");
+    if ( _game->activeMove() && _game->turn != _color)
+    {
+        _game->doMove( _position );
+        _game->setActiveMove(false);
+    }
+    else if ( _game->turn == _color ) _game->setSelectPiece(this);
+//    }
+}

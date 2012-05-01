@@ -4,8 +4,6 @@
 #include <QFrame>
 #include "qboard.h"
 
-//#include "qpiece.h"
-
 class QBoard;
 
 class QBoardPlace : public QFrame

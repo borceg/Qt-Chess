@@ -2,6 +2,11 @@
 #define QCELL_H
 
 #include <QLabel>
+#include <QMouseEvent>
+
+#include "qgame.h"
+
+class QGame;
 
 class QCell : public QLabel
 {
@@ -12,9 +17,10 @@ public:
 
 private:
     QPoint _position;
+    QGame *_game;
 
 protected:
-
+    virtual void mousePressEvent(QMouseEvent *ev);
 };
 
 #endif // QCELL_H

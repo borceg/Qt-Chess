@@ -8,10 +8,12 @@
 #endif
 
 #include <QHBoxLayout>
+#include <QMouseEvent>
 #include "qboard.h"
-//#include "qgame.h"
+#include "qgame.h"
 
 class QBoard;
+class QGame;
 
 class QPiece : public QSvgWidget
 {
@@ -32,6 +34,8 @@ public:
     void setPosition(QPoint val);
     void setState(State val);
 
+    void movePiece(QPoint newPos);
+
     QPoint  position();
     bool    color();        //True - white, False - black piece
     State   state();        //Deleted or not
@@ -48,7 +52,8 @@ private:
     QSvgWidget *_svgPiece;
 
 protected:
-    //QGame *_game;
+    QGame *_game;
+    virtual void mousePressEvent(QMouseEvent *);
 };
 
 #endif // QPIECE_H

@@ -19,6 +19,7 @@ See the GNU General Public License for more details.
 #include "qgameplace.h"
 
 class QGamePlace;
+class QPiece;
 
 class QGame
 {
@@ -26,17 +27,24 @@ protected:
     static QGame *_instance;
 
 public:
-    bool turn;                  //Чей ход? True - white
+    static QGame *instance();
     QPiece *_Wpieces[2][8];
     QPiece *_Bpieces[2][8];
     QBoard *_board;
-    static QGame *instance();
+    bool turn;                  //Чей ход? True - white
     void setBoard(QBoard *val);
     void newGame();
+
+    void setActiveMove(bool val);
+    bool activeMove();
+
+    void setSelectPiece(QPiece *val);
+    QPiece *selectPiece();
+
+    void doMove(QPoint newPos);
+private:
     QGame();
     //~QGame();
-
-private:
     QResource _res;
     QPiece *_selectPiece;
     bool _activeMove;

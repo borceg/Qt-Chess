@@ -70,3 +70,29 @@ void QGame::setBoard(QBoard *val)
 {
     _board = val;
 }
+
+void QGame::setActiveMove(bool val)
+{
+    _activeMove = val;
+}
+
+bool QGame::activeMove()
+{
+    return _activeMove;
+}
+
+void QGame::setSelectPiece(QPiece *val)
+{
+    _selectPiece = val;
+}
+
+QPiece *QGame::selectPiece()
+{
+    return _selectPiece;
+}
+
+void QGame::doMove(QPoint newPos)
+{
+    _selectPiece->movePiece(newPos);
+    turn = !turn;
+}

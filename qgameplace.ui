@@ -11,13 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>QGamePlace</string>
+   <string>Qt Chess</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(212, 255, 219);
-
-
-</string>
+   <string notr="true">background-color: rgb(212, 255, 219);</string>
   </property>
   <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
@@ -26,7 +23,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
