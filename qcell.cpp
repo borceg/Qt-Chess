@@ -14,12 +14,16 @@ QPoint QCell::getPosC()
 
 void QCell::mousePressEvent(QMouseEvent *ev)
 {
-    if ( ev->button() == Qt::LeftButton)
-    {
-    if ( _game->activeMove() )
-    {
-        _game->doMove( _position );
+    int i = this->getPosC().x();
+    int j = this->getPosC().y();
+    qDebug() << i << j;
+    if ( _game->activeMove() && _game->_aMvs[i*8 + j] ) {
+        //Переместить фигуру
         _game->setActiveMove(false);
-    }
+        _game->doMove( _position );
+        _game->resetMoves();
+        _game->_map[_position.x()*8 + _position.y()] = 1;
     }
 }
+
+

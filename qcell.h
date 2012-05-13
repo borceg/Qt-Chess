@@ -21,6 +21,7 @@ private:
 
 protected:
     virtual void mousePressEvent(QMouseEvent *ev);
+
 };
 
 #endif // QCELL_H

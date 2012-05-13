@@ -22,12 +22,12 @@ private:
 
 public:
     enum Type{
-        Rook,       //Ладья
-        Knight,     //Конь
-        Bishop,     //Слон
-        Queen,      //Королева
-        King,       //Король
-        Pawn        //Пешка
+        Rook,       //Ладья - 0
+        Knight,     //Конь - 1
+        Bishop,     //Слон - 2
+        Queen,      //Королева - 3
+        King,       //Король - 4
+        Pawn        //Пешка - 5
     };
     QPiece(QWidget *board, QPoint position, Type type);
 
@@ -40,6 +40,7 @@ public:
     bool    color();        //True - white, False - black piece
     State   state();        //Deleted or not
     Type    type();         //Pawn, King end etc.
+    bool _1stStep;
 
 private:
     void setType(Type val);
@@ -49,11 +50,10 @@ private:
     State   _state;
     bool    _color;
     QBoard *_board;
-    QSvgWidget *_svgPiece;
 
 protected:
     QGame *_game;
-    virtual void mousePressEvent(QMouseEvent *);
+    virtual void mousePressEvent(QMouseEvent *event);
 };
 
 #endif // QPIECE_H

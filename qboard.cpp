@@ -65,3 +65,4 @@ void QBoard::drawCells()
         }
     }
 }
+

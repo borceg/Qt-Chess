@@ -17,6 +17,11 @@ See the GNU General Public License for more details.
 #include <QResource>
 #include "qpiece.h"
 #include "qgameplace.h"
+#include <QPoint>
+#include <QDebug>
+#include <QBitArray>
+#include <iostream>
+#include <iomanip>
 
 class QGamePlace;
 class QPiece;
@@ -28,8 +33,8 @@ protected:
 
 public:
     static QGame *instance();
-    QPiece *_Wpieces[2][8];
-    QPiece *_Bpieces[2][8];
+    QPiece *_WPawns[8], *_WKing, *_WQueen, *_WRook[2], *_WKnight[2], *_WBishop[2];
+    QPiece *_BPawns[8], *_BKing, *_BQueen, *_BRook[2], *_BKnight[2], *_BBishop[2];
     QBoard *_board;
     bool turn;                  //Чей ход? True - white
     void setBoard(QBoard *val);
@@ -42,12 +47,20 @@ public:
     QPiece *selectPiece();
 
     void doMove(QPoint newPos);
+    void genMoves();
+    void resetMoves();
+    void light(bool val);
+    QBitArray _aMvs;
+    QBitArray _map;
 private:
     QGame();
     //~QGame();
     QResource _res;
-    QPiece *_selectPiece;
+    QPiece *_sPiece;
     bool _activeMove;
+
+    void view_aMvs();
+    void view_map();
 };
 
 #endif // QGAME_H
