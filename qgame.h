@@ -38,6 +38,7 @@ public:
     QBoard *_board;
     bool turn;                  //Чей ход? True - white
     void setBoard(QBoard *val);
+    void createPiece();
     void newGame();
 
     void setActiveMove(bool val);

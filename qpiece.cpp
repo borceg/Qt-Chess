@@ -1,13 +1,25 @@
+/*
+Copyright (C) 2012  John24
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License,
+or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+*/
+
 #include "qpiece.h"
 
-QPiece::QPiece(QWidget *board, QPoint position, Type type ) : QSvgWidget(board)
+QPiece::QPiece(QWidget *board, bool color, Type type ) : QSvgWidget(board)
 {
-    _game = QGame::instance();
     _board = static_cast<QBoard *> (board);
     _1stStep = true;
-    _color = position.x() > 4;  //Color changed
+    setColor(color);
     setType(type);
-    setPosition(position);
+//    setPosition(position);
 }
 
 void QPiece::setPosition(QPoint val)
@@ -67,13 +79,27 @@ void QPiece::movePiece(QPoint newPos)
     setPosition(newPos);
 }
 
+void QPiece::setVis(bool val)
+{
+    QWidget *pW = _board->Cells[ this->position().x() ][ this->position().y() ];
+    if ( val )
+    {
+        pW->layout()->addWidget(this);
+    }
+    else pW->layout()->removeWidget(this);
+}
+
 void QPiece::mousePressEvent(QMouseEvent *event)
 {
-    qDebug() << _position.x() << _position.y();
+    _game = QGame::instance();
+//    qDebug() << _position.x() << _position.y();
     if ( _game->activeMove() && _game->turn != _color)
     {
         //Срубить фигуру
+        this->setState(Deleted);
+        this->setVis(false);
         _game->doMove( _position );
+        _game->setActiveMove(false);
     }
     else //Выбрать фигуру
         if ( _game->turn == _color )

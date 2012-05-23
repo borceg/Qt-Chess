@@ -23,6 +23,9 @@ QGame::QGame()
     _sPiece = 0;
     _activeMove = false;
 
+    _map.resize(64);
+    _aMvs.resize(64);
+
 }
 
 QGame *QGame::instance()
@@ -34,35 +37,62 @@ QGame *QGame::instance()
     return _instance;
 }
 
+void QGame::createPiece()
+{
+    _BRook[0]   = new  QPiece( _board, false, QPiece::Rook );
+    _BKnight[0] = new  QPiece( _board, false, QPiece::Knight );
+    _BBishop[0] = new  QPiece( _board, false, QPiece::Bishop );
+    _BQueen     = new  QPiece( _board, false, QPiece::Queen );
+    _BKing      = new  QPiece( _board, false, QPiece::King );
+    _BBishop[1] = new  QPiece( _board, false, QPiece::Bishop );
+    _BKnight[1] = new  QPiece( _board, false, QPiece::Knight );
+    _BRook[1]   = new  QPiece( _board, false, QPiece::Rook );
+    for (int i = 0; i < 8; ++i)
+    {
+        _BPawns[i] = new  QPiece( _board, false, QPiece::Pawn );
+    }
+
+    _WRook[0]   = new  QPiece( _board, true, QPiece::Rook );
+    _WKnight[0] = new  QPiece( _board, true, QPiece::Knight );
+    _WBishop[0] = new  QPiece( _board, true, QPiece::Bishop );
+    _WQueen     = new  QPiece( _board, true, QPiece::Queen );
+    _WKing      = new  QPiece( _board, true, QPiece::King );
+    _WBishop[1] = new  QPiece( _board, true, QPiece::Bishop );
+    _WKnight[1] = new  QPiece( _board, true, QPiece::Knight );
+    _WRook[1]   = new  QPiece( _board, true, QPiece::Rook );
+    for (int i = 0; i < 8; ++i)
+    {
+        _WPawns[i] = new  QPiece( _board, true, QPiece::Pawn );
+    }
+}
+
 //Расстановка фигур на доске
 void QGame::newGame()
 {
-    _map.resize(64);
-    _aMvs.resize(64);
-    _BRook[0]   = new  QPiece( _board, _board->Cells[0][0]->getPosC(), QPiece::Rook );
-    _BKnight[0] = new  QPiece( _board, _board->Cells[0][1]->getPosC(), QPiece::Knight );
-    _BBishop[0] = new  QPiece( _board, _board->Cells[0][2]->getPosC(), QPiece::Bishop );
-    _BQueen     = new  QPiece( _board, _board->Cells[0][3]->getPosC(), QPiece::Queen );
-    _BKing      = new  QPiece( _board, _board->Cells[0][4]->getPosC(), QPiece::King );
-    _BBishop[1] = new  QPiece( _board, _board->Cells[0][5]->getPosC(), QPiece::Bishop );
-    _BKnight[1] = new  QPiece( _board, _board->Cells[0][6]->getPosC(), QPiece::Knight );
-    _BRook[1]   = new  QPiece( _board, _board->Cells[0][7]->getPosC(), QPiece::Rook );
+    _BRook[0]->setPosition(_board->Cells[0][0]->getPosC());
+    _BKnight[0]->setPosition(_board->Cells[0][1]->getPosC());
+    _BBishop[0]->setPosition(_board->Cells[0][2]->getPosC());
+    _BQueen->setPosition(_board->Cells[0][3]->getPosC());
+    _BKing->setPosition(_board->Cells[0][4]->getPosC());
+    _BBishop[1]->setPosition(_board->Cells[0][5]->getPosC());
+    _BKnight[1]->setPosition(_board->Cells[0][6]->getPosC());
+    _BRook[1]->setPosition(_board->Cells[0][7]->getPosC());
     for (int i = 0; i < 8; ++i)
     {
-        _BPawns[i] = new  QPiece( _board, _board->Cells[1][i]->getPosC(), QPiece::Pawn );
+        _BPawns[i]->setPosition(_board->Cells[1][i]->getPosC());
     }
 
-    _WRook[0]   = new  QPiece( _board, _board->Cells[7][0]->getPosC(), QPiece::Rook );
-    _WKnight[0] = new  QPiece( _board, _board->Cells[7][1]->getPosC(), QPiece::Knight );
-    _WBishop[0] = new  QPiece( _board, _board->Cells[7][2]->getPosC(), QPiece::Bishop );
-    _WQueen     = new  QPiece( _board, _board->Cells[7][3]->getPosC(), QPiece::Queen );
-    _WKing      = new  QPiece( _board, _board->Cells[7][4]->getPosC(), QPiece::King );
-    _WBishop[1] = new  QPiece( _board, _board->Cells[7][5]->getPosC(), QPiece::Bishop );
-    _WKnight[1] = new  QPiece( _board, _board->Cells[7][6]->getPosC(), QPiece::Knight );
-    _WRook[1]   = new  QPiece( _board, _board->Cells[7][7]->getPosC(), QPiece::Rook );
+    _WRook[0]->setPosition(_board->Cells[7][0]->getPosC());
+    _WKnight[0]->setPosition(_board->Cells[7][1]->getPosC());
+    _WBishop[0]->setPosition(_board->Cells[7][2]->getPosC());
+    _WQueen->setPosition(_board->Cells[7][3]->getPosC());
+    _WKing->setPosition(_board->Cells[7][4]->getPosC());
+    _WBishop[1]->setPosition(_board->Cells[7][5]->getPosC());
+    _WKnight[1]->setPosition(_board->Cells[7][6]->getPosC());
+    _WRook[1]->setPosition(_board->Cells[7][7]->getPosC());
     for (int i = 0; i < 8; ++i)
     {
-        _WPawns[i] = new  QPiece( _board, _board->Cells[6][i]->getPosC(), QPiece::Pawn );
+        _WPawns[i]->setPosition(_board->Cells[6][i]->getPosC());
     }
 
     //Init map
@@ -257,8 +287,8 @@ void QGame::genMoves()
         }
     }
 
-    view_aMvs();
-    view_map();
+//    view_aMvs();
+//    view_map();
 }
 
 void QGame::light(bool val)

@@ -1,3 +1,16 @@
+/*
+Copyright (C) 2012  John24
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License,
+or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+*/
+
 #ifndef QPIECE_H
 #define QPIECE_H
 
@@ -29,7 +42,7 @@ public:
         King,       //Король - 4
         Pawn        //Пешка - 5
     };
-    QPiece(QWidget *board, QPoint position, Type type);
+    QPiece(QWidget *board, bool color, Type type);
 
     void setPosition(QPoint val);
     void setState(State val);
@@ -40,6 +53,7 @@ public:
     bool    color();        //True - white, False - black piece
     State   state();        //Deleted or not
     Type    type();         //Pawn, King end etc.
+    void setVis(bool val);
     bool _1stStep;
 
 private:
